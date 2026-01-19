@@ -1,45 +1,16 @@
 package model;
 
 public class pedidoEncomienda extends pedido{
-    private boolean pesoEmbalajeValido;
 
-    public pedidoEncomienda (String idPedido, String direccionPedido, String tipoPedido, boolean pesoEmbalajeValido){
-        super(idPedido, direccionPedido, tipoPedido);
-        this.pesoEmbalajeValido = pesoEmbalajeValido;
-    }
-
-    public boolean getPesoEmbalajeValido(){
-        return pesoEmbalajeValido;
-    }
-    public void setPesoEmbalajeValido(boolean pesoEmbalajeValido){
-        this.pesoEmbalajeValido = pesoEmbalajeValido;
+    public pedidoEncomienda(String idPedido, String direccionPedido, double distanciaKm){
+        super(idPedido, direccionPedido, distanciaKm);
     }
 
     @Override
-    public void asignarRepartidor(){
-        System.out.println("\n[Pedido Encomienda] ");
-        System.out.println("Asignando repartidor... ");
-        if (pesoEmbalajeValido){
-            System.out.println("El peso y embalaje del pedido son validos.");
-        }
-        else{
-            System.out.println("ERROR: No se puede asignar repartidor.");
-        }
+    public double calcularTiempoDeEntrega(){
+        double tiempo = 20 + (1.5 * getDistanciaKm());
+     return Math.round(tiempo);
     }
-
-    @Override
-    public void asignarRepartidor(String nombreRepartidor){
-        System.out.println("\n[Pedido Encomienda] ");
-        System.out.println("Asignando repartidor... ");
-        System.out.println("Pedido asignado a: " + nombreRepartidor);
-        if (pesoEmbalajeValido){
-            System.out.println("El peso y embalaje del pedido son validos.");
-        }
-        else{
-            System.out.println("ERROR: No se puede asignar repartidor.");
-        }
-    }
-
 
 
 }

@@ -1,49 +1,45 @@
 package model;
 
-public class pedido {
+public abstract class pedido {
     private String idPedido;
     private String direccionPedido;
-    private String tipoPedido;
+    private double distanciaKm;
 
-
-    public pedido(String idPedido, String direccionPedido, String tipoPedido){
+    public pedido(String idPedido, String direccionPedido, double distanciaKm){
         this.idPedido = idPedido;
         this.direccionPedido = direccionPedido;
-        this.tipoPedido = tipoPedido;
+        this.distanciaKm = distanciaKm;
     }
 
-    public String getIdPedido() {
+    public String getIdPedido(){
         return idPedido;
     }
     public void setIdPedido(String idPedido){
         this.idPedido = idPedido;
     }
-
-    public String getDireccionPedido() {
+    public String getDireccionPedido(){
         return direccionPedido;
     }
-
-    public void setDireccionPedido(String direccionPedido) {
+    public void setDireccionPedido(String direccionPedido){
         this.direccionPedido = direccionPedido;
     }
-    public String getTipoPedido(){
-        return tipoPedido;
+    public double getDistanciaKm(){
+        return distanciaKm;
+    }
+    public void setDistanciaKm(double distanciaKm){
+        this.distanciaKm = distanciaKm;
     }
 
-    public void setTipoPedido(String tipoPedido) {
-        this.tipoPedido = tipoPedido;
+    public void mostrarResumen(){
+        System.out.println("--- INFORMACION DEL PEDIDO ---");
+        System.out.println("ID Pedido: " + idPedido);
+        System.out.println("Direccion: " + direccionPedido);
+        System.out.println("Distancia: " + distanciaKm + " Km");
+        System.out.println();
     }
 
-  public void asignarRepartidor(){
-      System.out.println("Asignando repartidor... ");
-  }
 
- public void asignarRepartidor(String nombreRepartidor){
-     System.out.println("Asignando repartidor... ");
-     System.out.println("Pedido asignado a: " + nombreRepartidor);
-
- }
-
+    public abstract double calcularTiempoDeEntrega();
 
 }
 

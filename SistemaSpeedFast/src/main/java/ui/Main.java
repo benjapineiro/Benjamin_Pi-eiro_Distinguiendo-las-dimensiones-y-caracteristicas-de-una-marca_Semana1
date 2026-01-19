@@ -6,38 +6,36 @@ import model.pedidoEncomienda;
 import model.pedidoExpress;
 
 
+
 public class Main {
     public static void main(String[] args) {
 
         pedido pedido1 = new pedidoComida(
-            "COO1",
-            "Calle Egipto 620",
-                "Pedido de Comida",
-                true
+                "C001",
+                "Calle Egipto 620",
+                4
         );
 
         pedido pedido2 = new pedidoEncomienda(
                 "E001",
                 "Av. Las lagunas 783",
-                "Encomienda",
-                true
+                6
         );
 
         pedido pedido3 = new pedidoExpress(
-          "EX001",
-          "Av. Los troncos 889",
-          "Pedido Express",
-          true
+                "EX002",
+                "Av. Los troncos 889",
+                3
         );
 
-        pedido1.asignarRepartidor("Juan");
-        pedido2.asignarRepartidor("Carlos");
-        pedido3.asignarRepartidor("María");
-
-
-
-
-
-
+        pedido1.mostrarResumen();
+        System.out.println("Tiempo de entrega: " +
+                pedido1.calcularTiempoDeEntrega() + " minutos\n");
+        pedido2.mostrarResumen();
+        System.out.println("Tiempo de entrega: " +
+                pedido2.calcularTiempoDeEntrega() + " minutos\n");
+        pedido3.mostrarResumen();
+        System.out.println("Tiempo de entrega: " +
+                pedido3.calcularTiempoDeEntrega() + " minutos\n");
     }
 }
